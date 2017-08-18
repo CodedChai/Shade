@@ -1,8 +1,10 @@
 #include "Src/graphics/window.h"
+#include "Src\math\math.h"
 
 int main(int argc, char **argv) {
 	using namespace shade;
 	using namespace graphics;
+	using namespace math;
 
 	Window window("Shade!", 1280, 720);
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
@@ -10,16 +12,17 @@ int main(int argc, char **argv) {
 	GLuint vao;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
+
+	vec2 vector(1.0f, 1.0f);
+	vector.add(vec2(2, 2)).add(vec2(3,3));
+
+	vec2 a(1, 2);
+	vec2 b(1, 2.1);
 	
 	while (!window.closed()) {
 		window.clear();
-		if (window.isMouseButtonPressed(GLFW_MOUSE_BUTTON_LEFT)) {
-			std::cout << "PRESSED" << std::endl;
-		}
 
-		double x, y;
-		window.getMousePosition(x, y);
-		std::cout << x << y << std::endl;
+		std::cout << (a != b) << std::endl;
 #if 1
 		glBegin(GL_QUADS);
 		glVertex2f(-.5f, -.5f);
