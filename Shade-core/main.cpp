@@ -1,16 +1,16 @@
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
-#include <GL\freeglut.h>
-#include <iostream>
+#include "Src/graphics/window.h"
 
 int main(int argc, char **argv) {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-	glutInitWindowPosition(500, 500);
-	glutInitWindowSize(800, 600);
-	glutCreateWindow("OpenGL First Window");
+	using namespace shade;
+	using namespace graphics;
 
-	glutMainLoop();
+	Window window("Shade!", 800, 600);
+	//glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
+	
+	while (!window.closed()) {
+		//glClear(GL_COLOR_BUFFER_BIT);
+		window.update();
+	}
 
 	return 0;
 }
