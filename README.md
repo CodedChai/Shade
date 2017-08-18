@@ -1,5 +1,5 @@
 # Shade
-An OpenGL game engine.
+An OpenGL game engine written in C++ using GLFW and glew.
 
 
 ## Visual Studio 2017 Set Up
