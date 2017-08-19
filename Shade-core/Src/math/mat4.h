@@ -1,12 +1,17 @@
 #pragma once
 
-#include "math_funcs.h"
 #include "vec3.h"
+#include "vec4.h"
+#include "math_funcs.h"
 
 namespace shade {
 	namespace math {
+		// Column major ordering
 		struct mat4 {
-			float elements[4 * 4];
+			union {
+				float elements[4 * 4];
+				vec4 columns[4];
+			};
 
 			mat4();
 			mat4(float diagonal);

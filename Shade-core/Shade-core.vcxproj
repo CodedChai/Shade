@@ -78,6 +78,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -118,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Src\graphics\shader.cpp" />
     <ClCompile Include="Src\graphics\window.cpp" />
     <ClCompile Include="Src\math\mat4.cpp" />
     <ClCompile Include="Src\math\vec2.cpp" />
@@ -126,8 +128,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Src\shaders\basic.frag" />
+    <None Include="Src\shaders\basic.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\graphics\shader.h" />
     <ClInclude Include="Src\graphics\window.h" />
     <ClInclude Include="Src\math\mat4.h" />
     <ClInclude Include="Src\math\math.h" />
@@ -135,6 +140,7 @@
     <ClInclude Include="Src\math\vec2.h" />
     <ClInclude Include="Src\math\vec3.h" />
     <ClInclude Include="Src\math\vec4.h" />
+    <ClInclude Include="Src\utils\fileutils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

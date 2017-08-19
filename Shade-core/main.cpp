@@ -1,5 +1,7 @@
 #include "Src\graphics\window.h"
 #include "Src\math\math.h"
+#include "Src\graphics\shader.h"
+
 int main(int argc, char **argv) {
 	using namespace shade;
 	using namespace graphics;
@@ -8,31 +10,29 @@ int main(int argc, char **argv) {
 	Window window("Shade!", 1280, 720);
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 	
-	GLuint vao;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+	GLuint vbo;
 
-	vec2 vector(1.0f, 1.0f);
-	vector.add(vec2(2, 2)).add(vec2(3,3));
+	GLfloat vertices[] = 
+	{
+		-0.5f, -0.5f, 0.0f,
+		-0.5f,  0.5f, 0.0f,
+		 0.5f,  0.5f, 0.05f,
+		 0.5f,  0.5f, 0.0f,
+		 0.5f, -0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f
+	};
 
-	vec2 a(1.0f, 2.0f);
-	vec2 b(1.0f, 2.1f);
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
 
-	mat4 position = mat4::translation(vec3(2, 3, 4));
-	position *= mat4::identity();
-	
+	Shader shader("Src/shaders/basic.vert", "Src/shaders/basic.frag");
+	shader.enable();
+
 	while (!window.closed()) {
 		window.clear();
-
-		std::cout << (a != b) << std::endl;
-#if 1
-		glBegin(GL_QUADS);
-		glVertex2f(-.5f, -.5f);
-		glVertex2f(-.5f, .5f);
-		glVertex2f(.5f, .5f);
-		glVertex2f(.5f, -.5f);
-		glEnd();
-#endif
 		glDrawArrays(GL_ARRAY_BUFFER, 0, 6);
 		window.update();
 	}
