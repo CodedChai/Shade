@@ -119,6 +119,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Src\graphics\window.cpp" />
+    <ClCompile Include="Src\math\mat4.cpp" />
     <ClCompile Include="Src\math\vec2.cpp" />
     <ClCompile Include="Src\math\vec3.cpp" />
     <ClCompile Include="Src\math\vec4.cpp" />
@@ -128,7 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\graphics\window.h" />
+    <ClInclude Include="Src\math\mat4.h" />
     <ClInclude Include="Src\math\math.h" />
+    <ClInclude Include="Src\math\math_funcs.h" />
     <ClInclude Include="Src\math\vec2.h" />
     <ClInclude Include="Src\math\vec3.h" />
     <ClInclude Include="Src\math\vec4.h" />

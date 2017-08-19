@@ -1,6 +1,5 @@
-#include "Src/graphics/window.h"
+#include "Src\graphics\window.h"
 #include "Src\math\math.h"
-
 int main(int argc, char **argv) {
 	using namespace shade;
 	using namespace graphics;
@@ -16,8 +15,11 @@ int main(int argc, char **argv) {
 	vec2 vector(1.0f, 1.0f);
 	vector.add(vec2(2, 2)).add(vec2(3,3));
 
-	vec2 a(1, 2);
-	vec2 b(1, 2.1);
+	vec2 a(1.0f, 2.0f);
+	vec2 b(1.0f, 2.1f);
+
+	mat4 position = mat4::translation(vec3(2, 3, 4));
+	position *= mat4::identity();
 	
 	while (!window.closed()) {
 		window.clear();
