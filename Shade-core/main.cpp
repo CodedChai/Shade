@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
 	Shader shader("Src/shaders/basic.vert", "Src/shaders/basic.frag");
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
-	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
+	shader.setUniformMat4("ml_matrix", mat4::translate(vec3(4, 3, 0)));
 	// To make the light in the center you must subtract translation as well
 	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
 	shader.setUniform4f("col", vec4(0.0f, 0.8f, 0.2f, 1.0f));

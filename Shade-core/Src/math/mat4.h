@@ -27,8 +27,8 @@ namespace shade {
 			static mat4 perspective(float fov, float aspectRatio, float near, float far);
 
 			// Translation matrices
-			static mat4 translation(const vec3& translation);
-			static mat4 rotation(float angle, const vec3& axis);
+			static mat4 translate(const vec3& translation);
+			static mat4 rotate(float angle, const vec3& axis);
 			static mat4 scale(const vec3& scale);
 
 
