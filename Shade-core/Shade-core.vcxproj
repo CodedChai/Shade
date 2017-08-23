@@ -127,6 +127,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Src\graphics\buffers\buffer.cpp" />
+    <ClCompile Include="Src\graphics\buffers\indexbuffer.cpp" />
+    <ClCompile Include="Src\graphics\buffers\vertexarray.cpp" />
     <ClCompile Include="Src\graphics\shader.cpp" />
     <ClCompile Include="Src\graphics\window.cpp" />
     <ClCompile Include="Src\math\mat4.cpp" />
@@ -140,6 +143,9 @@
     <None Include="Src\shaders\basic.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\graphics\buffers\buffer.h" />
+    <ClInclude Include="Src\graphics\buffers\indexbuffer.h" />
+    <ClInclude Include="Src\graphics\buffers\vertexarray.h" />
     <ClInclude Include="Src\graphics\shader.h" />
     <ClInclude Include="Src\graphics\window.h" />
     <ClInclude Include="Src\math\mat4.h" />
