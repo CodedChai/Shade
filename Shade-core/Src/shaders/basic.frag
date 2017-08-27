@@ -7,15 +7,15 @@ uniform vec2 light_pos;
 
 in DATA 
 {
-	vec4 pos;
+	vec4 position;
 	vec4 color;
 } fs_in;
 
-in vec4 pos;
+in vec4 position;
 
 void main()
 {
-	float intensity = 1.0 / length(fs_in.pos.xy - light_pos);
+	float intensity = 1.0 / length(fs_in.position.xy - light_pos);
 	// color = col * intensity;
 	color = fs_in.color * intensity;
 }

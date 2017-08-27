@@ -11,6 +11,7 @@ namespace shade {
 			for (int i = 0; i < m_Buffers.size(); i++) {
 				delete m_Buffers[i];
 			}
+			glDeleteVertexArrays(1, &m_ArrayID);
 		}
 
 		// This index is the same as the layout index in shaders
