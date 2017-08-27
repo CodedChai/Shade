@@ -68,6 +68,9 @@
     <ClCompile Include="Src\graphics\layers\tilelayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\graphics\layers\group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\graphics\window.h">
@@ -131,6 +134,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\graphics\layers\tilelayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\graphics\layers\group.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

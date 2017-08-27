@@ -98,6 +98,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -141,6 +142,7 @@
     <ClCompile Include="Src\graphics\buffers\buffer.cpp" />
     <ClCompile Include="Src\graphics\buffers\indexbuffer.cpp" />
     <ClCompile Include="Src\graphics\buffers\vertexarray.cpp" />
+    <ClCompile Include="Src\graphics\layers\group.cpp" />
     <ClCompile Include="Src\graphics\layers\layer.cpp" />
     <ClCompile Include="Src\graphics\layers\tilelayer.cpp" />
     <ClCompile Include="Src\graphics\simple2drenderer.cpp" />
@@ -163,6 +165,7 @@
     <ClInclude Include="Src\graphics\buffers\buffer.h" />
     <ClInclude Include="Src\graphics\buffers\indexbuffer.h" />
     <ClInclude Include="Src\graphics\buffers\vertexarray.h" />
+    <ClInclude Include="Src\graphics\layers\group.h" />
     <ClInclude Include="Src\graphics\layers\layer.h" />
     <ClInclude Include="Src\graphics\layers\tilelayer.h" />
     <ClInclude Include="Src\graphics\renderable2d.h" />

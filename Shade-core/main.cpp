@@ -15,7 +15,7 @@
 #include "Src\utils\timer.h"
 
 #include "Src\graphics\layers\tilelayer.h"
-
+#include "Src\graphics\layers\group.h"
 #include <time.h>
 
 int main(int argc, char **argv) {
@@ -30,12 +30,16 @@ int main(int argc, char **argv) {
 
 	Shader* s = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	Shader* s2 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Shader* s3 = new Shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	Shader& shader = *s;
 	Shader& shader2 = *s2;
+	Shader& shader3 = *s3;
 	shader.enable();
 	shader2.enable();
+	shader3.enable();
 	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
 	shader2.setUniform2f("light_pos", vec2(4.0f, 1.5f));
+	shader3.setUniform2f("light_pos", vec2(4.0f, 1.5f));
 
 	TileLayer layer(&shader);
 	for (float y = -9.0f; y < 9.0f; y += 0.1)
@@ -49,6 +53,16 @@ int main(int argc, char **argv) {
 	TileLayer layer2(&shader2);
 	layer2.add(new Sprite(-2, -2, 4, 4, vec4(1, 0, 1, 1)));
 
+	TileLayer layer3(&shader3);
+	Group* group = new Group(mat4::translate(math::vec3(-15.0f, 5.0f, 0.0f)));
+	group->add(new Sprite(0, 0, 6, 3, math::vec4(1, 1, 1, 1)));
+	
+	Group* button = new Group(mat4::translate(vec3(0.5f, 0.5f, 0.0f)));
+	button->add(new Sprite(0, 0, 5.0f, 2.0f, math::vec4(1, 0, 1, 1)));
+	button->add(new Sprite(0.5f, 0.5f, 3.0f, 1.0f, math::vec4(0.2f, 0.3f, 0.8f, 1)));
+	group->add(button);
+	
+	layer.add(group);
 
 	Timer time;
 	float timer = 0;
@@ -63,9 +77,12 @@ int main(int argc, char **argv) {
 		shader.setUniform2f("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f), (float)(9.0f - y * 18.0f / window.getHeight())));
 		shader2.enable();
 		shader2.setUniform2f("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f), (float)(9.0f - y * 18.0f / window.getHeight())));
+		shader3.enable();
+		shader3.setUniform2f("light_pos", vec2((float)(x * 32.0f / window.getWidth() - 16.0f), (float)(9.0f - y * 18.0f / window.getHeight())));
 
 		layer.render();
 		layer2.render();
+		layer3.render();
 
 		window.update();
 		frames++;

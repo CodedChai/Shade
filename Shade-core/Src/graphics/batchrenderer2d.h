@@ -2,6 +2,8 @@
 
 #include <cstddef>
 #include "renderer2d.h"
+#include "renderable2d.h"
+
 namespace shade {
 	namespace graphics {
 
