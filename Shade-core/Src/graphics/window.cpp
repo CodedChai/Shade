@@ -40,7 +40,8 @@ namespace shade {
 			glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 			glfwSetKeyCallback(m_Window, key_callback);
 			glfwSetCursorPosCallback(m_Window, cursor_position_callback);
-
+			// Disable V-Sync
+			glfwSwapInterval(0);
 
 			// GLEW has to be after you make the glfw context
 			if (glewInit() != GLEW_OK) {

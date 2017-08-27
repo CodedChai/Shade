@@ -118,5 +118,8 @@
     <ClInclude Include="Src\graphics\static_sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\utils\timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

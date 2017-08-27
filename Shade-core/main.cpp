@@ -12,6 +12,7 @@
 
 #include "Src\graphics\static_sprite.h"
 #include "Src\graphics\sprite.h"
+#include "Src\utils\timer.h"
 
 #include <time.h>
 
@@ -33,16 +34,15 @@ int main(int argc, char **argv) {
 	std::vector<Renderable2D*> sprites;
 	srand(time(NULL));
 
-
-	for (float y = 0; y < 16.0f; y+=0.05f) {
-		for (float x = 0; x < 16.0f; x+=0.05f) {
+	for (float y = 0; y < 16.0f; y+=0.023f) {
+		for (float x = 0; x < 16.0f; x+=0.023f) {
 			sprites.push_back(new 
 #if BATCH_RENDERER
 				Sprite
 #else
 				StaticSprite
 #endif
-				(x, y, 0.04f, 0.04f, math::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)
+				(x, y, 0.015f, 0.015f, math::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)
 #if !BATCH_RENDERER
 				, shader
 #endif
@@ -66,12 +66,20 @@ int main(int argc, char **argv) {
 #endif
 
 	shader.setUniform4f("col", vec4(0.0f, 0.8f, 0.2f, 1.0f));
+	
+	Timer time;
+	float timer = 0;
+	unsigned int frames = 0;
+
+	printf("Sprites: %d\n", sprites.size());
+
 
 	while (!window.closed()) {
 		window.clear();
 		double x, y;
 		window.getMousePosition(x, y);
 		shader.setUniform2f("light_pos", vec2((float)(x * 16.0f / window.getWidth()), (float)(9.0f - y * 9.0f / window.getHeight())));
+
 #if BATCH_RENDERER
 		renderer.begin();
 #endif		
@@ -82,8 +90,13 @@ int main(int argc, char **argv) {
 		renderer.end();
 #endif
 		renderer.flush();
-		printf("Sprites: %d\n", sprites.size());
 		window.update();
+		frames++;
+		if (time.elapsed() - timer > 1.0) {
+			timer += 1.0f;
+			printf("%d fps\n", frames);
+			frames = 0;
+		}
 	}
 
 	return 0;

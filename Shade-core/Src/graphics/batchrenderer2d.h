@@ -1,10 +1,11 @@
 #pragma once
 
+#include <cstddef>
 #include "renderer2d.h"
 namespace shade {
 	namespace graphics {
 
-#define RENDERER_MAX_SPRITES	150000
+#define RENDERER_MAX_SPRITES	500000
 #define RENDERER_VERTEX_SIZE	sizeof(VertexData)
 #define RENDERER_SPRITE_SIZE	RENDERER_VERTEX_SIZE * 4
 #define RENDERER_BUFFER_SIZE	RENDERER_SPRITE_SIZE * RENDERER_MAX_SPRITES
